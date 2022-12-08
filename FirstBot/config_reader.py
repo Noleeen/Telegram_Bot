@@ -1,5 +1,7 @@
 from pydantic import BaseSettings, SecretStr
 
+# в файле .env token для бота Bezoti
+
 class Settings(BaseSettings):
     # Желательно вместо str использовать SecretStr
     # для конфиденциальных данных, например, токена бота
