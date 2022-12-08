@@ -18,9 +18,17 @@ k2 = KeyboardButton('/description')
 k3 = KeyboardButton('/close')
 k4 = KeyboardButton('❤️')
 
-kb.add(k1).insert(k2).insert(k3).add(k4).add(KeyboardButton('/random_location'))
+kb.add(k1).insert(k2).insert(k3).add(k4).insert(KeyboardButton('/random_location'))
 
-HELP = 'помоги себе <em>сам</em> =)'
+HELP = '''
+помоги себе <em>сам</em> =)
+/help - список команд
+/start - запускает клавиатуру
+/'❤️'- за сэрца паказвае табе годны стыкер)
+description - 
+/random_location - показывает случайную точку на карте
+/close - 
+'''
 
 async def on(_):
     print('бот запущен (сильно сильно запущен...))')
