@@ -6,12 +6,10 @@ from config_reader import config
 # TOKEN_API = '5834874802:AAGfg5faAVAf3Ra5aaBkjZlJM42_r9n207k'
 # bot = Bot(TOKEN_API)
 
-
+# УСТАНАВЛИВАЕМ pip install pydantic[dotenv]
 # скрываем токен в файле .env и заносим его в gitignore
-# Для записей с типом Secret* необходимо
-# вызывать метод get_secret_value(),
-# чтобы получить настоящее содержимое вместо '*******'
-bot = Bot(token=config.bot_token.get_secret_value())  # УСТАНАВЛИВАЕМ pip install pydantic[dotenv]
+# Для записей с типом Secret* необходимо вызывать метод get_secret_value(), чтобы получить настоящее содержимое вместо '*******'
+bot = Bot(token=config.bot_token.get_secret_value())
 
 dp = Dispatcher(bot)# диспетчер отвечает за функционал бота (отслеживание, анализ...)
 

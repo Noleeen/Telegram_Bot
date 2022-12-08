@@ -1,6 +1,7 @@
 from aiogram import Bot, Dispatcher, types, executor
 import string
 import random
+from config_reader import config
 
 HELP_COMAND = '''
 /help - список команд
@@ -17,9 +18,12 @@ HELP_COMAND = '''
 /картинка - выводит фото (указываем либо пть к файлу, либо ссылку с интернета)
 /location - отправляет пользовател карту с точкой по заданным координатам
 '''
-TOKEN_API = '5834874802:AAGfg5faAVAf3Ra5aaBkjZlJM42_r9n207k'
+# УСТАНАВЛИВАЕМ pip install pydantic[dotenv]
+# скрываем токен в файле .env и заносим его в gitignore
+# Для записей с типом Secret* необходимо вызывать метод get_secret_value(), чтобы получить настоящее содержимое вместо '*******'
+bot = Bot(token=config.bot_token.get_secret_value())
 
-bot = Bot(TOKEN_API)
+
 dp = Dispatcher(bot)
 
 count = 0

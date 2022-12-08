@@ -1,10 +1,11 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
+from config_reader import config
 
 HELP = '''
 <b>/help</b> - <em>список команд</em>
 <b>/start</b> - <em>список команд</em>
-<b>/discription</b> - <em>описание</em>
+<b>/description</b> - <em>описание</em>
 <b>/pict</b> - <em>кидает фотку</em>
 <b>/close</b> - <em>закрывает клавиатуру</em>'''
 
@@ -17,8 +18,7 @@ b4 = KeyboardButton('/close')
 
 kb.add(b1).insert(b2).add(b3).insert(b4)
 
-TOKEN_API = '5834874802:AAGfg5faAVAf3Ra5aaBkjZlJM42_r9n207k'
-bot = Bot(TOKEN_API)
+bot = Bot(token=config.bot_token.get_secret_value())
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
@@ -43,7 +43,7 @@ async def pict_com(message: types.Message):
                            photo = "https://img2.joyreactor.cc/pics/post/full/anon-%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0-2191131.jpeg")
 
 
-@dp.message_handler(commands=['discription'])
+@dp.message_handler(commands=['description'])
 async def pict_com(message: types.Message):
     await message.answer('тестируем кнопАчыки')
 
